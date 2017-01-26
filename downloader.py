@@ -41,12 +41,12 @@ class Downloader(object):
 
     def list(self):
         if not self.__storage:
-            print "No data found in: '%s'.\n You must download the data first.\n Run with '-h' option." % self.__dbdir
+            print("No data found in: '%s'.\n You must download the data first.\n Run with '-h' option." % self.__dbdir)
         for d in self.__storage:
-            print d
+            print(d)
 
     def __init_storage(self):
-        return [f.replace('.ns', '') for f in listdir(self.__dbdir) if f.endswith('.ns')]
+        return [f.replace('.ns', '') for f in listdir(self.__dbdir) if f.endswith('.ns') and not f.startswith('local')]
 
     def __remove_dump(self, datafile):
         self.__log.info("Removing %s", datafile)
