@@ -1,5 +1,5 @@
 # Indra Composed
-A set of utilities to lauch Indra and its dependencies with docker-compose.
+A set of utilities to launch __Indra__ and its dependencies with docker-compose.
 
 ## Requirements
 
