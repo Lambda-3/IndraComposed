@@ -3,6 +3,9 @@
 from os import path, listdir, remove, makedirs
 from os.path import isfile, join, basename
 
+import sys
+sys.path.insert(0, path.abspath('./packages'))
+
 import argparse
 import logging
 import requests
