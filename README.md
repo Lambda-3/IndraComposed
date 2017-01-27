@@ -39,3 +39,9 @@ Assuming you have already cloned this repository do the following.
 	}]
 }' "http://localhost:8916/relatedness"
 ```
+
+## Issues
+
+We'd love to hear you. Use our Issue tracker to give feedback!
+
+---
