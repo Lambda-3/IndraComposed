@@ -9,7 +9,7 @@ Please __ensure__ you have the following requirements:
  * Docker (1.9+) and Docker Compose
  * Python (2.7+)
  
-## For the Impatients: Starting a local instance with Word2Vec for English.
+## For the Impatient: Starting a local instance with Word2Vec for English.
 
 Assuming you have already cloned this repository do the following.
 
