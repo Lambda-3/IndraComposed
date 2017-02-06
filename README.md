@@ -8,7 +8,7 @@ The main goal here is to get a running instance quickly then you can go directly
 Please __ensure__ you have the following requirements:
 
  * Docker (1.9+) and Docker Compose
- * Python (2.7+)
+ * Python (2.7+ or 3.0+)
  
 ## For the Impatient: Starting a local instance with Word2Vec and GloVe for English.
 
@@ -80,6 +80,29 @@ headers = {
 res = requests.post("http://example.com:8916/relatedness", data=json.dumps(data), headers=headers)
 res.raise_for_status()
 print(res.json())
+```
+
+# Citing Indra in papers
+
+Please cite Indra in your paper, if you use it in your experiments.
+```latex
+@inproceedings{Barzegar:2015:DOS:2766462.2767870,
+ author = {Barzegar, Siamak and Sales, Juliano Efson and Freitas, Andre and Handschuh, Siegfried and Davis, Brian},
+ title = {DINFRA: A One Stop Shop for Computing Multilingual Semantic Relatedness},
+ booktitle = {Proceedings of the 38th International ACM SIGIR Conference on Research and Development in Information Retrieval},
+ series = {SIGIR '15},
+ year = {2015},
+ isbn = {978-1-4503-3621-5},
+ location = {Santiago, Chile},
+ pages = {1027--1028},
+ numpages = {2},
+ url = {http://doi.acm.org/10.1145/2766462.2767870},
+ doi = {10.1145/2766462.2767870},
+ acmid = {2767870},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ keywords = {distirbutional infrastructure, distributional semantic models, multilingual semantic relatedness},
+}
 ```
 
 # Issues
