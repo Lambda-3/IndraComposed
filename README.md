@@ -45,9 +45,19 @@ Assuming you have already cloned this repository do the following.
 
 Currently we store the models in [MongoDB 3.0](https://docs.mongodb.com/manual/release-notes/3.0/). We are making the MongoDB databases available for download [here](http://data.lambda3.org/indra).
 
+To activate the translated semantic relatedness and translated work embeddings, the respective translation model should be downloaded. There are seven models (for seven different languages) available:
+
+* de\_en-Europarl\_DGT\_OpenSubtitile - German
+* fr\_en-Europarl\_DGT\_OpenSubtitile - French
+* es\_en-Europarl\_DGT\_OpenSubtitile - Spanish
+* it\_en-Europarl\_DGT\_OpenSubtitile - Italian
+* nl\_en-Europarl\_DGT\_OpenSubtitile - Dutch
+* sv\_en-Europarl\_DGT\_OpenSubtitile - Swedish
+* pt\_en-Europarl\_DGT\_OpenSubtitile - Portuguese
+
 ## Building Models
 
-We're planning to increasing the models available and in parallel we will release the code required to build your own models with your corpus.  
+We're planning to increasing the models available and in parallel we will release the code required to build your own models with your corpus.
 
 ## downloader.py
 
