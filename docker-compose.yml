@@ -12,7 +12,7 @@ services:
   indra:
     image: lambdacube/indra:latest
     ports:
-      - "127.0.0.1:8916:8916"
+      - "0.0.0.0:8916:8916"
     environment:
       - INDRA_JAVA_OPTS=-Xmx4g -Dindra.http.host=0.0.0.0 -Dindra.mongoURI=mongodb://mongo:27017
     links:
