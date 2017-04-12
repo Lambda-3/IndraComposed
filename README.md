@@ -45,7 +45,7 @@ Assuming you have already cloned this repository do the following.
 
 Currently we store the models in [MongoDB 3.0](https://docs.mongodb.com/manual/release-notes/3.0/). We are making the MongoDB databases available for download [here](http://data.lambda3.org/indra).
 
-To activate the translated semantic relatedness and translated work embeddings, the respective translation model should be downloaded. There are seven models (for seven different languages) available:
+To activate the translated semantic relatedness and translated word embeddings the respective translation model must be downloaded. There are seven models (for seven different languages) available:
 
 * de\_en-Europarl\_DGT\_OpenSubtitile - German
 * fr\_en-Europarl\_DGT\_OpenSubtitile - French
