@@ -2,18 +2,13 @@ version: '2'
 
 services:
   mongo:
-    image: mongo:3.0
+    image: mongo:3.4
+    container_name: indramongo
     command: --noprealloc --noauth --nojournal
     expose:
      - 27017
     volumes:
-     - "./data/mongo/3.0/db:/data/db"
+     - ./data/mongo/3.4/db:/data/db
+     - ./dumps:/dumps
   
-  indra:
-    image: lambdacube/indra:latest
-    ports:
-      - "0.0.0.0:8916:8916"
-    environment:
-      - INDRA_JAVA_OPTS=-Xmx4g -Dindra.http.host=0.0.0.0 -Dindra.mongoURI=mongodb://mongo:27017
-    links:
-      - mongo
+
