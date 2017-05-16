@@ -1,22 +1,35 @@
+
+Table of Contents
+=================
+
+   * [Indra Composed](#indra-composed)
+      * [Requirements](#requirements)
+      * [How to start a local instance with the Google News Word2Vec model](#how-to-start-a-local-instance-with-the-google-news-word2vec-model)
+   * [Models](#models)
+      * [Translations](#translations)
+      * [Building Models](#building-models)
+   * [Programmatically usage from Python](#programmatically-usage-from-python)
+   * [Citing Indra](#citing-indra)
+   * [Issues](#issues)
+
+
 # Indra Composed
 
-A set of utilities to launch __Indra__ and its dependencies with docker-compose.
-The main goal here is to get a running instance quickly then you can go directly to the API usage section. 
+A set of utilities to launch __Indra__ and its dependencies with docker-compose. The main goal here is to get a running instance quickly.
 
 ## Requirements
 
 Please __ensure__ you have the following requirements:
 
  * Docker (1.9+) and Docker Compose
- * Python (2.7+ or 3.0+)
  
-## For the Impatient: Starting a local instance with Word2Vec and GloVe for English.
+## How to start a local instance with the Google News Word2Vec model
 
 Assuming you have already cloned this repository do the following.
 
- 1. Download the desired Models.
+ 1. Downloading the model.
  
- ```$ python downloader.py --dumps w2v-en-wiki-2014 --dumps glove-en-wiki-2014```
+ ```$ ./downloader.sh  w2v-en-GoogleNews300neg```
  
  2. ..after a few minutes. 
  
@@ -41,9 +54,13 @@ Assuming you have already cloned this repository do the following.
 }' "http://localhost:8916/relatedness"
 ```
 
+More detailed documentation is [here](https://github.com/Lambda-3/Indra).
+
 # Models
 
-Currently we store the models in [MongoDB 3.0](https://docs.mongodb.com/manual/release-notes/3.0/). We are making the MongoDB databases available for download [here](http://data.lambda3.org/indra).
+Currently we store the models in the MongoDB database. We are making models available for download [here](http://data.lambda3.org/indra/dumps).
+
+## Translations
 
 To activate the translated semantic relatedness and translated word embeddings the respective translation model must be downloaded. There are seven models (for seven different languages) available:
 
@@ -59,13 +76,7 @@ To activate the translated semantic relatedness and translated word embeddings t
 
 We're planning to increasing the models available and in parallel we will release the code required to build your own models with your corpus.
 
-## downloader.py
-
-To keep the deployment simple we advise to use the __downloader.py__ command line tool in order to fetch the desired models in sync with the supported Indra version.
-
-# Programmatically Usage
-
-### Python. 
+# Programmatically usage from Python
 
 This code snippet relies on the beatiful library [requests](https://github.com/kennethreitz/requests).
 
