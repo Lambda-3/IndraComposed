@@ -27,13 +27,15 @@ Please __ensure__ you have the following requirements:
 
 Assuming you have already cloned this repository do the following.
 
- 1. Downloading the model.
+ 1. Start the services.
+ 
+ ```$ docker-compose up -d```
+
+
+ 2. Downloading the model.
  
  ```$ ./downloader.sh  w2v-en-GoogleNews300neg```
  
- 2. ..after a few minutes. 
- 
- ```$ docker-compose up```
  
  3. Test It!
  
