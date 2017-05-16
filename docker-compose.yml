@@ -11,4 +11,12 @@ services:
      - ./data/mongo/3.4/db:/data/db
      - ./dumps:/dumps
   
-
+  indra:
+    image: lambdacube/indra:latest
+    container_name: indraserver
+    ports:
+      - "0.0.0.0:8916:8916"
+    environment:
+      - INDRA_JAVA_OPTS=-Xmx4g -Dindra.http.host=0.0.0.0 -Dindra.mongoURI=mongodb://mongo:27017
+    links:
+      - mongo

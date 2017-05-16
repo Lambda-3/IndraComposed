@@ -2,6 +2,18 @@
 
 set -e
 
+BASEURL="http://data.lambda3.org/indra/dumps"
+
+if [ ! $1 ]; then
+	echo ".........................................................."
+	echo "Load Indra models from $BASEURL."
+	echo "Usage: downloader.sh <name_of_the_model>"
+	echo "Example to load the public Word2Vec model of Google News"
+	echo " downloader.sh w2v-en-GoogleNews300neg"
+	echo ".........................................................."
+	exit 0
+fi
+
 loaded=`docker exec -it indramongo mongo $1 --quiet --eval "db.getCollectionNames().length"`
 loaded=$(echo -n "${loaded//[[:space:]]/}")
 
@@ -10,7 +22,7 @@ if [ "$loaded" != "0" ] ; then
 	exit 0
 fi
 
-BASEURL="http://data.lambda3.org/indra/dumps"
+
 
 MODELFILE="$1.tar.gz"
 MD5FILE="$1.tar.gz.md5"
