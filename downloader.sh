@@ -40,6 +40,7 @@ if [ ! -d "./data/$1" ]; then
 	rm $MODELFILE $MD5FILE
 fi
 
-docker exec -it indramongo mongorestore /dumps/data --stopOnError
+docker exec -it indramongo mongorestore /dumps/data/$1 -d $1 --stopOnError
 
 echo "Finished."
+
