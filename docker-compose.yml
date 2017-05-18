@@ -2,15 +2,18 @@ version: '2'
 
 services:
   mongo:
-    image: mongo:3.0
+    image: mongo:3.4
+    container_name: indramongo
     command: --noprealloc --noauth --nojournal
     expose:
      - 27017
     volumes:
-     - "./data/mongo/3.0/db:/data/db"
+     - ./data/mongo/3.4/db:/data/db
+     - ./dumps:/dumps
   
   indra:
-    image: lambdacube/indra:2.0.0
+    image: lambdacube/indra:latest
+    container_name: indraserver
     ports:
       - "0.0.0.0:8916:8916"
     environment:
