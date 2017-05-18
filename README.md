@@ -1,4 +1,6 @@
 
+__NOTE: This documentation refers to the latest version of Indra. Look for the tags in this repository if you need to install older versions.__
+
 Table of Contents
 =================
 
@@ -34,14 +36,14 @@ Assuming you have already cloned this repository do the following.
 
  2. Downloading the model.
  
- ```$ ./downloader.sh  w2v-en-GoogleNews300neg```
+ ```$ ./downloader.sh  w2v-en-googlenews300neg```
  
  
  3. Test It!
  
  ```
  $ curl -X POST -H "Content-Type: application/json" -d '{
-	"corpus": "wiki-2014",
+	"corpus": "googlenews300neg",
 	"model": "W2V",
 	"language": "EN",
 	"scoreFunction": "COSINE",
@@ -91,7 +93,7 @@ pairs = [
     {'t1': 'house', 't2': 'beer'},
     {'t1': 'car', 't2': 'engine'}]
 
-data = {'corpus': 'wiki-2014',
+data = {'corpus': 'googlenews300neg',
         'model': 'W2V',
         'language': 'EN',
         'scoreFunction': 'COSINE', 'pairs': pairs}
@@ -100,7 +102,7 @@ headers = {
     'content-type': "application/json"
 }
 
-res = requests.post("http://example.com:8916/relatedness", data=json.dumps(data), headers=headers)
+res = requests.post("http://localhost:8916/relatedness", data=json.dumps(data), headers=headers)
 res.raise_for_status()
 print(res.json())
 ```
