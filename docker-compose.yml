@@ -10,7 +10,7 @@ services:
      - "./data/mongo/3.0/db:/data/db"
   
   indra:
-    image: lambdacube/indra:latest
+    image: lambdacube/indra:2.0.0
     ports:
       - "0.0.0.0:8916:8916"
     environment:
