@@ -12,7 +12,7 @@ services:
      - ./dumps:/dumps
   
   indra:
-    image: lambdacube/indra:latest
+    image: lambdacube/indra:2.0.0
     container_name: indraserver
     ports:
       - "0.0.0.0:8916:8916"
