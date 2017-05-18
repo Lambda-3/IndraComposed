@@ -17,6 +17,6 @@ services:
     ports:
       - "0.0.0.0:8916:8916"
     environment:
-      - INDRA_JAVA_OPTS=-Xmx4g -Dindra.http.host=0.0.0.0 -Dindra.mongoURI=mongodb://mongo:27017
+      - INDRA_JAVA_OPTS=-Xmx4g -Dindra.http.host=0.0.0.0 -Dindra.mongoURI=mongo:27017
     links:
       - mongo
