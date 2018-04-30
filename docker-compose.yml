@@ -1,22 +1,12 @@
 version: '2'
 
 services:
-  mongo:
-    image: mongo:3.4
-    container_name: indramongo
-    command: --noprealloc --noauth --nojournal
-    expose:
-     - 27017
-    volumes:
-     - ./data/mongo/3.4/db:/data/db
-     - ./dumps:/dumps
-  
   indra:
-    image: lambdacube/indra:2.0.2
+    image: lambdacube/indra:latest
     container_name: indraserver
     ports:
       - "0.0.0.0:8916:8916"
+    volumes:
+      - ./data:/data
     environment:
-      - INDRA_JAVA_OPTS=-Xmx4g -Dindra.http.host=0.0.0.0 -Dindra.mongoURI=mongo:27017
-    links:
-      - mongo
+      - INDRA_JAVA_OPTS=-Xmx20g -Dindra.http.host=0.0.0.0 -Dindra.http.port=8916 -Dindra.annoyBaseDir=/data/annoy -Dindra.luceneVectorsBaseDir=/data/lucene -Dindra.luceneTranslationBaseDir=/data/translation

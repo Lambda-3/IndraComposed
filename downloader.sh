@@ -9,38 +9,36 @@ if [ ! $1 ]; then
 	echo "Load Indra models from $BASEURL."
 	echo "Usage: downloader.sh <name_of_the_model>"
 	echo "Example to load the public Word2Vec model of Google News"
-	echo " downloader.sh w2v-en-GoogleNews300neg"
+	echo " downloader.sh w2v-en-googlenews300neg"
 	echo ".........................................................."
 	exit 0
 fi
 
-loaded=`docker exec -it indramongo mongo $1 --quiet --eval "db.getCollectionNames().length"`
-loaded=$(echo -n "${loaded//[[:space:]]/}")
+if [[ $1 != esa* ]] ; then
+	MODELFILE="$1.annoy.tar.gz"
+	MD5FILE="$1.annoy.tar.gz.md5"
+	TARGETDIR="data/annoy"
 
-if [ "$loaded" != "0" ] ; then
-	echo "$1 already loaded."
-	exit 0
+else
+	MODELFILE="$1.lucene.tar.gz"
+	MD5FILE="$1.lucene.tar.gz.md5"
+	TARGETDIR="data/lucene"
 fi
 
+mkdir -p $TARGETDIR
+cd $TARGETDIR
 
-
-MODELFILE="$1.tar.gz"
-MD5FILE="$1.tar.gz.md5"
 MODELURL="$BASEURL/$MODELFILE"
 MD5URL="$BASEURL/$MD5FILE"
 
-mkdir -p dumps/data 
-cd dumps
-
-if [ ! -d "./data/$1" ]; then
+if [ ! -d "./$1" ]; then
 	echo "Downloading $MODELURL .."
 	wget -nc $MODELURL && wget -nc $MD5URL && md5sum -c $MD5FILE 
 	echo "Extracting $MODELFILE"
-	tar -C ./data -xf $MODELFILE --totals
+	tar -C . -xf $MODELFILE --totals
 	rm $MODELFILE $MD5FILE
+else
+	echo "Model '$1' is already available."
 fi
 
-docker exec -it indramongo mongorestore /dumps/data/$1 -d $1 --stopOnError
-
 echo "Finished."
-
