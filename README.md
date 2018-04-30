@@ -36,14 +36,14 @@ Assuming you have already cloned this repository do the following.
 
  2. Downloading the model.
  
- ```$ ./downloader.sh  w2v-en-googlenews300neg```
+ ```$ ./downloader.sh  w2v-en-googlenews```
  
  
  3. Test It!
  
  ```
  $ curl -X POST -H "Content-Type: application/json" -d '{
-	"corpus": "googlenews300neg",
+	"corpus": "googlenews",
 	"model": "W2V",
 	"language": "EN",
 	"scoreFunction": "COSINE",
@@ -68,13 +68,13 @@ Currently we store the models in the MongoDB database. We are making models avai
 
 To activate the translated semantic relatedness and translated word embeddings the respective translation model must be downloaded. There are seven models (for seven different languages) available:
 
-* de\_en-Europarl\_DGT\_OpenSubtitile - German
-* fr\_en-Europarl\_DGT\_OpenSubtitile - French
-* es\_en-Europarl\_DGT\_OpenSubtitile - Spanish
-* it\_en-Europarl\_DGT\_OpenSubtitile - Italian
-* nl\_en-Europarl\_DGT\_OpenSubtitile - Dutch
-* sv\_en-Europarl\_DGT\_OpenSubtitile - Swedish
-* pt\_en-Europarl\_DGT\_OpenSubtitile - Portuguese
+* de\_en - German
+* fr\_en - French
+* es\_en - Spanish
+* it\_en - Italian
+* nl\_en - Dutch
+* sv\_en - Swedish
+* pt\_en - Portuguese
 
 ## Building Models
 
@@ -93,7 +93,7 @@ pairs = [
     {'t1': 'house', 't2': 'beer'},
     {'t1': 'car', 't2': 'engine'}]
 
-data = {'corpus': 'googlenews300neg',
+data = {'corpus': 'googlenews',
         'model': 'W2V',
         'language': 'EN',
         'scoreFunction': 'COSINE', 'pairs': pairs}
@@ -111,25 +111,14 @@ print(res.json())
 
 Please cite Indra, if you use it in your experiments or project.
 ```latex
-@Inbook{Freitas2016,
-author="Freitas, Andr{\'e}
-and Barzegar, Siamak
-and Sales, Juliano Efson
-and Handschuh, Siegfried
-and Davis, Brian",
-editor="Blomqvist, Eva
-and Ciancarini, Paolo
-and Poggi, Francesco
-and Vitali, Fabio",
-title="Semantic Relatedness for All (Languages): A Comparative Analysis of Multilingual Semantic Relatedness Using Machine Translation",
-bookTitle="Knowledge Engineering and Knowledge Management: 20th International Conference, EKAW 2016, Bologna, Italy, November 19-23, 2016, Proceedings",
-year="2016",
-publisher="Springer International Publishing",
-address="Cham",
-pages="212--222",
-isbn="978-3-319-49004-5",
-doi="10.1007/978-3-319-49004-5_14",
-url="http://dx.doi.org/10.1007/978-3-319-49004-5_14"
+@InProceedings{indra2018,
+author="Sales, Juliano Efson and Souza, Leonardo and Barzegar, Siamak and Davis, Brian and Freitas, Andr{\'e} and Handschuh, Siegfried",
+title="Indra: A Word Embedding and Semantic Relatedness Server",
+booktitle = {Proceedings of the Eleventh International Conference on Language Resources and Evaluation (LREC 2018)},
+month     = {May},
+year      = {2018},
+address   = {Miyazaki, Japan},
+publisher = {European Language Resources Association (ELRA)},
 }
 ```
 
