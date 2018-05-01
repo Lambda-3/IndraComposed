@@ -14,15 +14,18 @@ if [ ! $1 ]; then
 	exit 0
 fi
 
-if [[ $1 != esa* ]] ; then
-	MODELFILE="$1.annoy.tar.gz"
-	MD5FILE="$1.annoy.tar.gz.md5"
-	TARGETDIR="data/annoy"
-
-else
+if [[ $1 == esa* ]] ; then
 	MODELFILE="$1.lucene.tar.gz"
 	MD5FILE="$1.lucene.tar.gz.md5"
 	TARGETDIR="data/lucene"
+elif [[ $1 == *_en ]] ; then
+	MODELFILE="$1.translation.tar.gz"
+	MD5FILE="$1.translation.tar.gz.md5"
+	TARGETDIR="data/translation"
+else
+	MODELFILE="$1.annoy.tar.gz"
+	MD5FILE="$1.annoy.tar.gz.md5"
+	TARGETDIR="data/annoy"
 fi
 
 mkdir -p $TARGETDIR
