@@ -2,7 +2,7 @@
 
 set -e
 
-BASEURL="http://data.lambda3.org/indra/dumps"
+BASEURL="http://95.216.102.40/indra/dumps"
 
 if [ ! $1 ]; then
 	echo ".........................................................."
